@@ -24,7 +24,7 @@ The project is being built incrementally, beginning with reliable replay ingesti
 
 ## Current Status
 
-**Milestone 0 — Replay ingestion: complete**
+**Milestone 0 - Replay ingestion: complete**
 
 The first replay was successfully processed with the following properties:
 
@@ -69,9 +69,9 @@ flowchart TD
 
 The intended three-stage learning strategy is:
 
-1. **Simulation pretraining** — learn broad strategy through large numbers of accelerated theoretical matches.
-2. **Replay alignment** — correct simulation assumptions using decisions and outcomes reconstructed from real gameplay.
-3. **Live shadow evaluation** — observe real matches, recommend actions, and measure whether predicted decisions are useful.
+1. **Simulation pretraining** - learn broad strategy through large numbers of accelerated theoretical matches.
+2. **Replay alignment** - correct simulation assumptions using decisions and outcomes reconstructed from real gameplay.
+3. **Live shadow evaluation** - observe real matches, recommend actions, and measure whether predicted decisions are useful.
 
 ## Repository Structure
 
@@ -160,14 +160,14 @@ Count the exported images:
 
 ## Roadmap
 
-### Milestone 1 — Regions of Interest
+### Milestone 1 - Regions of Interest
 
 - [ ] Define normalized regions for the arena, hand, elixir, timer, and tower health.
 - [ ] Add a visual region-overlay tool.
 - [ ] Export separate crops for each region.
 - [ ] Validate the layout across several frames.
 
-### Milestone 2 — Visual Perception
+### Milestone 2 - Visual Perception
 
 - [ ] Install the object-detection stack.
 - [ ] Detect troops, buildings, towers, and deployed cards.
@@ -175,42 +175,42 @@ Count the exported images:
 - [ ] Estimate elixir and read the match timer.
 - [ ] Produce an annotated output video.
 
-### Milestone 3 — Temporal State Reconstruction
+### Milestone 3 - Temporal State Reconstruction
 
 - [ ] Track detected entities between frames.
 - [ ] Estimate movement, health, ownership, and position.
 - [ ] Reconstruct card deployments and card rotation.
 - [ ] Serialize structured game-state sequences.
 
-### Milestone 4 — Decision Dataset
+### Milestone 4 - Decision Dataset
 
 - [ ] Extract `(state, action, next_state)` transitions.
 - [ ] Create train, validation, and test splits by match.
 - [ ] Add confidence filtering for noisy perception.
 - [ ] Build dataset inspection and replay tools.
 
-### Milestone 5 — Behaviour Cloning
+### Milestone 5 - Behaviour Cloning
 
 - [ ] Train a baseline policy on replay actions.
 - [ ] Predict wait/play, card choice, placement, and timing.
 - [ ] Measure card accuracy, placement error, and legality.
 - [ ] Compare against simple scripted baselines.
 
-### Milestone 6 — Offline Reinforcement Learning
+### Milestone 6 - Offline Reinforcement Learning
 
 - [ ] Define rewards from tower damage, elixir trades, and match outcome.
 - [ ] Add sequence models such as a Decision Transformer.
 - [ ] Compare imitation learning against reward-conditioned policies.
 - [ ] Evaluate against held-out replay situations.
 
-### Milestone 7 — Shadow Mode
+### Milestone 7 - Shadow Mode
 
 - [ ] Capture the live PC game window.
 - [ ] Run perception and policy inference in real time.
 - [ ] Display recommended card, placement, confidence, and expected outcome.
 - [ ] Log recommendations and observed outcomes without automating gameplay.
 
-### Milestone 8 — Simulation Layer
+### Milestone 8 - Simulation Layer
 
 - [ ] Implement a simplified fast game engine.
 - [ ] Train against scripted opponents and historical checkpoints.
