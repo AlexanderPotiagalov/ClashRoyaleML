@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+data/raw_videos/*
+!data/raw_videos/.gitkeep
+data/frames/*
+!data/frames/.gitkeep

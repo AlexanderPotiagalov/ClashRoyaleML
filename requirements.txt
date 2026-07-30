@@ -1,0 +1,4 @@
+opencv-python>=4.10,<5
+numpy>=1.26,<3
+tqdm>=4.66,<5
+pytest>=8,<9
