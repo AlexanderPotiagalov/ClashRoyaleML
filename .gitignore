@@ -12,3 +12,5 @@ data/card_slots/*
 !data/card_slots/.gitkeep
 data/card_clusters/*
 !data/card_clusters/.gitkeep
+data/card_dataset/*
+!data/card_dataset/.gitkeep
