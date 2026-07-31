@@ -1,0 +1,57 @@
+{
+  "deck_name": "main_deck_v1",
+  "logical_cards": [
+    {
+      "id": "electro_spirit",
+      "elixir": 1
+    },
+    {
+      "id": "fireball",
+      "elixir": 4
+    },
+    {
+      "id": "barbarian_barrel",
+      "elixir": 2
+    },
+    {
+      "id": "knight",
+      "elixir": 3
+    },
+    {
+      "id": "hero_musketeer",
+      "elixir": 4
+    },
+    {
+      "id": "hog_rider",
+      "elixir": 4
+    },
+    {
+      "id": "cannon",
+      "elixir": 3,
+      "visual_variants": [
+        "cannon",
+        "cannon_evolution"
+      ],
+      "evolution_cycle": 2
+    },
+    {
+      "id": "skeletons",
+      "elixir": 1
+    }
+  ],
+  "visual_classes": [
+    "electro_spirit",
+    "fireball",
+    "barbarian_barrel",
+    "knight",
+    "hero_musketeer",
+    "hog_rider",
+    "cannon",
+    "cannon_evolution",
+    "skeletons",
+    "unknown"
+  ],
+  "notes": {
+    "cannon_evolution": "Treat as a distinct visual class during perception, then map it to logical card 'cannon' with is_evolved=true."
+  }
+}

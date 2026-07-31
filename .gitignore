@@ -8,3 +8,5 @@ data/frames/*
 !data/frames/.gitkeep
 data/crops/*
 !data/crops/.gitkeep
+data/card_slots/*
+!data/card_slots/.gitkeep
