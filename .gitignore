@@ -6,3 +6,5 @@ data/raw_videos/*
 !data/raw_videos/.gitkeep
 data/frames/*
 !data/frames/.gitkeep
+data/crops/*
+!data/crops/.gitkeep
