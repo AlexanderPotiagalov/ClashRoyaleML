@@ -14,3 +14,11 @@ data/card_clusters/*
 !data/card_clusters/.gitkeep
 data/card_dataset/*
 !data/card_dataset/.gitkeep
+!data/card_dataset/reference/
+data/card_dataset/reference/*
+!data/card_dataset/reference/.gitkeep
+!data/card_dataset/reference/cannon_evolution/
+data/card_dataset/reference/cannon_evolution/*
+!data/card_dataset/reference/cannon_evolution/.gitkeep
+data/card_classifications/*
+!data/card_classifications/.gitkeep
