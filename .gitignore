@@ -22,3 +22,7 @@ data/card_dataset/reference/cannon_evolution/*
 !data/card_dataset/reference/cannon_evolution/.gitkeep
 data/card_classifications/*
 !data/card_classifications/.gitkeep
+data/card_training/*
+!data/card_training/.gitkeep
+models/*
+!models/.gitkeep

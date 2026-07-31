@@ -180,8 +180,26 @@ def main() -> int:
         print(f"{match}: {len(rows)} images, {counts['cannon_evolution']} Cannon Evolution")
 
     args.output_root.mkdir(parents=True, exist_ok=True)
-    (args.output_root / "classification_summary.json").write_text(
-        json.dumps(all_summaries, indent=2), encoding="utf-8"
+    combined_summary_path = args.output_root / "classification_summary.json"
+    combined_summaries: dict[str, object] = {}
+    if combined_summary_path.is_file():
+        try:
+            existing = json.loads(combined_summary_path.read_text(encoding="utf-8"))
+            if isinstance(existing, dict):
+                combined_summaries.update(existing)
+        except (json.JSONDecodeError, OSError):
+            pass
+    for match_summary_path in args.output_root.glob("match_*/classification_summary.json"):
+        try:
+            match_summary = json.loads(match_summary_path.read_text(encoding="utf-8"))
+            match_name = match_summary.get("match")
+            if isinstance(match_name, str):
+                combined_summaries[match_name] = match_summary
+        except (json.JSONDecodeError, OSError, AttributeError):
+            continue
+    combined_summaries.update(all_summaries)
+    combined_summary_path.write_text(
+        json.dumps(dict(sorted(combined_summaries.items())), indent=2), encoding="utf-8"
     )
     if not evolution_paths:
         print("WARNING: no approved Cannon Evolution references; that class remains inactive.")

@@ -46,6 +46,40 @@ The current pipeline can:
 - Apply normalized crops during extraction.
 - Generate a JSONL manifest linking each image to its source timestamp and frame index.
 - Keep raw videos, generated frames, and virtual environments out of Git.
+- Extract normalized regions and four individual card slots from portrait replays.
+- Classify card slots across multiple matches, including Cannon Evolution as a distinct visual class.
+- Build leakage-safe, match-level neural-training manifests without copying source images.
+- Fine-tune and evaluate a MobileNetV3-Small card classifier with unknown rejection.
+
+## Neural Card Classifier
+
+The first neural perception stage uses ten visual classes: the eight deck cards, Cannon Evolution, and empty slots. Cannon Evolution remains a distinct visual label but maps to logical card `cannon` with `is_evolved=true`. Unknown, transition, ambiguous, partially visible, and bad-crop samples are excluded from supervised card labels.
+
+Prepare a complete-match train/validation/test split:
+
+```powershell
+python scripts/prepare_card_training_data.py
+```
+
+Train MobileNetV3-Small (CUDA is selected automatically when available):
+
+```powershell
+python scripts/train_card_classifier.py
+```
+
+Evaluate only the held-out test match:
+
+```powershell
+python scripts/evaluate_card_classifier.py
+```
+
+Predict one image or every image beneath a directory:
+
+```powershell
+python scripts/predict_card.py path/to/card.jpg --confidence-threshold 0.65
+```
+
+Generated manifests live under `data/card_training/`; checkpoints and evaluation artifacts live under `models/card_classifier_v1/`. Both are ignored by Git.
 
 ## Project Vision
 

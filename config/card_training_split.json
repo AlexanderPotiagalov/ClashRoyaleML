@@ -1,0 +1,27 @@
+{
+  "strategy": "complete_match_holdout",
+  "visual_classes": [
+    "electro_spirit",
+    "fireball",
+    "barbarian_barrel",
+    "knight",
+    "hero_musketeer",
+    "hog_rider",
+    "cannon",
+    "cannon_evolution",
+    "skeletons",
+    "empty"
+  ],
+  "train_matches": [
+    "match_001",
+    "match_002",
+    "match_003",
+    "match_004"
+  ],
+  "validation_matches": [
+    "match_005"
+  ],
+  "test_matches": [
+    "match_006"
+  ]
+}
