@@ -28,5 +28,9 @@ data/elixir_analysis/*
 !data/elixir_analysis/.gitkeep
 data/elixir_labels/*
 !data/elixir_labels/.gitkeep
+data/timer_analysis/*
+!data/timer_analysis/.gitkeep
+data/timer_labels/*
+!data/timer_labels/.gitkeep
 models/*
 !models/.gitkeep

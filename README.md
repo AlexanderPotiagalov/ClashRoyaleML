@@ -107,6 +107,20 @@ python scripts/predict_elixir.py path/to/elixir/crop.jpg
 
 For a chronological directory, add `--temporal-smoothing`. An optional card-play CSV containing `timestamp_ms,elixir_cost` allows legitimate spending decreases; unexplained impossible jumps are suppressed.
 
+## Timer Recognition
+
+Timer crops use a fixed `125 x 83` layout. Regulation (`Time left`) and overtime retain identical `M:SS` character positions, so the timer stage uses deterministic per-position digit templates rather than general OCR. Header/background detection selects regulation versus overtime, configurable phase rules map the independent timer reading to an elixir phase, and temporal smoothing enforces countdown physics.
+
+```powershell
+python scripts/inspect_timer_crops.py
+python scripts/label_timer_frames.py --stratified
+python scripts/train_timer_recognizer.py
+python scripts/evaluate_timer_recognizer.py
+python scripts/predict_timer.py path/to/timer.jpg
+```
+
+The stratified label run requests 44 representative decisions by default: 20 from the training match and 12 each from validation and held-out test matches. Type `M:SS` and Enter, `U` for unknown, or `Q` to save and resume later. Phase thresholds live in `config/timer_phase_rules.json` and must be reviewed for other game modes or future rule changes.
+
 ## Project Vision
 
 ```mermaid
