@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "notes": "Configurable defaults for the recorded game mode. Verify these thresholds when evaluating another Clash Royale mode or after a rules update.",
+  "regulation": [
+    {"minimum_seconds": 61, "phase": "single_elixir"},
+    {"minimum_seconds": 0, "phase": "double_elixir"}
+  ],
+  "overtime": [
+    {"minimum_seconds": 61, "phase": "double_elixir_overtime"},
+    {"minimum_seconds": 0, "phase": "triple_elixir_overtime"}
+  ]
+}
