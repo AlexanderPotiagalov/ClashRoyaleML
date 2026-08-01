@@ -24,5 +24,9 @@ data/card_classifications/*
 !data/card_classifications/.gitkeep
 data/card_training/*
 !data/card_training/.gitkeep
+data/elixir_analysis/*
+!data/elixir_analysis/.gitkeep
+data/elixir_labels/*
+!data/elixir_labels/.gitkeep
 models/*
 !models/.gitkeep

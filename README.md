@@ -81,6 +81,32 @@ python scripts/predict_card.py path/to/card.jpg --confidence-threshold 0.65
 
 Generated manifests live under `data/card_training/`; checkpoints and evaluation artifacts live under `models/card_classifier_v1/`. Both are ignored by Git.
 
+## Elixir Recognition
+
+The elixir stage uses the fixed `554 x 61` ROI. Inspection showed that the displayed numeral is the strongest direct integer signal, while per-segment purple occupancy and total fill provide deterministic agreement and confidence checks. The initial implementation therefore uses learned numeral/segment prototypes rather than an unnecessary neural network.
+
+Inspect all matches and generate signal-analysis contact sheets:
+
+```powershell
+python scripts/inspect_elixir_crops.py
+```
+
+Label with the keyboard (`0`-`9`, `T` for 10, `U` for unknown, `Q` to save and quit):
+
+```powershell
+python scripts/label_elixir_frames.py
+```
+
+Labels resume safely and visually identical consecutive crops are propagated automatically. After every value is represented across at least three matches:
+
+```powershell
+python scripts/train_elixir_classifier.py
+python scripts/evaluate_elixir_classifier.py
+python scripts/predict_elixir.py path/to/elixir/crop.jpg
+```
+
+For a chronological directory, add `--temporal-smoothing`. An optional card-play CSV containing `timestamp_ms,elixir_cost` allows legitimate spending decreases; unexplained impossible jumps are suppressed.
+
 ## Project Vision
 
 ```mermaid
